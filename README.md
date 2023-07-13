@@ -8,3 +8,14 @@ creacion de notas (guardado, actualizado y eliminar)
 consultar correspondientes al usuario logeado
 
 Uso de contextos para acceder a componentes heredados tales que pueden ser funciones, estados o validaciones, lo que se pueda exportar por medio de las propiedades
+
+backend
+abrir terminal 1
+npm install 
+npm run dev
+
+frontend
+abrir terminal 2
+cd client 
+npm install
+npm run dev 
