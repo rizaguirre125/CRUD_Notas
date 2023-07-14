@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import { createAccessToken } from "../libs/jwt.js";
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 
 import { TOKEN_SECRET } from "../config.js";
 
@@ -9,8 +9,7 @@ export const register = async (req, res) => {
   const { email, password, username } = req.body;
   try {
     const userFound = await User.findOne({ email });
-    if (userFound)
-      return res.status(400).json(["This email already exist"]);
+    if (userFound) return res.status(400).json(["This email already exist"]);
 
     const passwordHash = await bcrypt.hash(password, 15); //
     const newUser = new User({
@@ -40,11 +39,10 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const userFound = await User.findOne({ email });
-    if (!userFound) return res.status(400).json(["User not found" ]);
+    if (!userFound) return res.status(400).json(["User not found"]);
 
     const isMatch = await bcrypt.compare(password, userFound.password);
-    if (!isMatch)
-      return res.status(400).json(["Incorrect password" ]);
+    if (!isMatch) return res.status(400).json(["Incorrect password"]);
 
     const token = await createAccessToken({ id: userFound._id });
 
@@ -79,16 +77,16 @@ export const profile = async (req, res) => {
     updatedAt: userFound.updatedAt,
   });
 };
-export const verifyToken = async (req, res) =>{
-  const {token} = req.cookies
+export const verifyToken = async (req, res) => {
+  const { token } = req.cookies;
 
-  if(!token) return res.status(401).json({message: ["Unautorized"]});
+  if (!token) return res.status(401).json({ message: ["Unautorized"] });
 
   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
-    if(err) return res.status(401).json({message:['Unautorized']});
+    if (err) return res.status(401).json({ message: ["Unautorized"] });
 
-    const userFound = await User.findById(user.id)
-    if (!userFound) return res.status(401).json({message: ['Unautorized']});
+    const userFound = await User.findById(user.id);
+    if (!userFound) return res.status(401).json({ message: ["Unautorized"] });
 
     return res.json({
       id: userFound._id,
@@ -96,4 +94,4 @@ export const verifyToken = async (req, res) =>{
       email: userFound.email,
     });
   });
-}
+};

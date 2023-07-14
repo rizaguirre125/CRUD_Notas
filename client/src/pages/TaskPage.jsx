@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useTasks } from "../context/TasksContext";
 import { Link } from "react-router-dom";
-import TaskCard from "../components/TaskCard.jsx";;
+import TaskCard from "../components/TaskCard.jsx";
 
 function TaskPage() {
   const { tasks, getTasks } = useTasks();
@@ -11,8 +11,11 @@ function TaskPage() {
   }, []);
   return (
     <div>
-      <div className="">
-        <Link to="/add-task" className="w-full bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-md my-2">
+      <div className="flex px-4 py-2 justify-end mb-2">
+        <Link
+          to="/add-task"
+          className="w-100 bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-md"
+        >
           New Task
         </Link>
       </div>

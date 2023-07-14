@@ -44,10 +44,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const logout = () => {
-    Cookies.remove('token');
+    Cookies.remove("token");
     setIsAuthenticated(false);
     setUser(null);
-  }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -57,15 +57,15 @@ export const AuthProvider = ({ children }) => {
   }, [errors]);
 
   useEffect(() => {
-    async function checkLogin(){
+    async function checkLogin() {
       const cookies = Cookies.get();
-      if(!cookies.token) {
+      if (!cookies.token) {
         setLoading(false);
         setIsAuthenticated(false);
         setUser(null);
         return;
       }
-      try{
+      try {
         const res = await verifyTokenRequest(cookies.token);
         if (!res.data) {
           setLoading(false);
@@ -77,8 +77,8 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
         setIsAuthenticated(true);
         setUser(res.data);
-      }catch(error){
-        console.log('un error: ', error);
+      } catch (error) {
+        console.log("un error: ", error);
         setLoading(false);
         setIsAuthenticated(false);
         setUser(null);

@@ -14,26 +14,30 @@ function TaskCard({ task }) {
   };
 
   return (
-    <div className="bg-zinc-800 max-w-md w-full p-10 rounded-10">
+    <div className="bg-zinc-800 max-w-md w-full p-5 rounded-10">
       <header className="flex justify-between">
         <h1 className="text-2xl font-bold">{task.title}</h1>
-        <div className="flex gap-x-2 items-center">
+        <div className="flex gap-x-2 items-start">
           <Link
             to={`/tasks/${task._id}`}
-            className="bg-blue-500 hove:bg-blue-600 text-white px-4 py-1 rounded-md"
+            className="bg-blue-500 hove:bg-blue-600 text-white px-3 py-1 rounded-md"
           >
-            Edit
+            Editar
           </Link>
           <button
             onClick={onClickBtnDelete}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-md"
+            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
           >
-            Delete
+            Eliminar
           </button>
         </div>
       </header>
+      <div className="flex py-2 justify-end ">
+        <p className="text-left">
+          {days(task.date).utc().format("DD/MM/YYYY")}
+        </p>
+      </div>
       <p className="text-slate-300">{task.description}</p>
-      <p className="text-left">{days(task.date).utc().format("DD/MM/YYYY")}</p>
     </div>
   );
 }
