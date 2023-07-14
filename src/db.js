@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-const mongoAtlasUri =
-  "mongodb+srv://darkuzdenta5:mrk3gUEnvZf0iTod@crudloginreactdb.ouujefq.mongodb.net/?retryWrites=true&w=majority";
+const mongoAtlasUri = ""; //#Cadena de conexion de mongodb atlas
 
 export const connectDB = async () => {
   try {
