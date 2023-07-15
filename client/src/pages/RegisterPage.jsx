@@ -27,44 +27,44 @@ function RegisterPage() {
             {error}
           </div>
         ))}
-        <h1 className="text-2xl font-bold my-2">Register</h1>
+        <h1 className="text-2xl font-bold my-2">Registrate</h1>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             {...register("username", { required: true })}
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-            placeholder="Username"
+            placeholder="Nombre de Usuario"
           />
           {errors.username && (
-            <p className="text-red-500"> Username is required</p>
+            <p className="text-red-500"> Nombre de usuario es requerido</p>
           )}
           <input
             type="text"
             {...register("email", { required: true })}
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-            placeholder="Email"
+            placeholder="Correo electrónico"
           />
-          {errors.email && <p className="text-red-500"> Email is required</p>}
+          {errors.email && <p className="text-red-500"> El correo electrónico es requerido</p>}
           <input
-            type="text"
+            type="password"
             {...register("password", { required: true })}
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-            placeholder="Password"
+            placeholder="Contraseña"
           />
           {errors.password && (
-            <p className="text-red-500"> Password is required</p>
+            <p className="text-red-500"> Contraseña requerida</p>
           )}
           <button
             type="submit"
-            className="w-full bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-md my-2"
+            className="w-full bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md my-2"
           >
-            Register
+            Registrar
           </button>
         </form>
         <p className="flex gap-2 justify-between">
-          {"Already have an account?"}
+          {"¿Ya tienes una cuenta?"}
           <Link to="/login" className="text-sky-500">
-            Sing in
+            inicia sesión
           </Link>
         </p>
       </div>

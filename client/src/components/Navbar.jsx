@@ -13,7 +13,7 @@ function Navbar() {
           <>
             <li>
               <Link to="/login" className="bg-indigo-500 px-4 py-1 rounded-sm">
-                Login
+                Iniciar sesión
               </Link>
             </li>
             <li>
@@ -21,7 +21,7 @@ function Navbar() {
                 to="/register"
                 className="bg-indigo-500 px-4 py-1 rounded-sm"
               >
-                Register
+                Registrar
               </Link>
             </li>
           </>
